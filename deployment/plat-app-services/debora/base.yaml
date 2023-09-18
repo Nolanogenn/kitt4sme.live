@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: debora
+  name: debora
+spec:
+  ports:
+  - name: http
+    port: 8000
+  selector:
+    app: debora
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: debora
+spec:
+  selector:
+    matchLabels:
+      app: debora
+  template:
+    spec:
+      containers:
+        - image: "INSERIRE CONTAINER"
+          imagePullPolicy: IfNotPresent
+          name: debora
+          ports:
+          - containerPort: 8000
+            name: http
+          env:
+          - name: "ORION_BASE_URL"
+            value: "http://orion:1026"
