@@ -22,7 +22,7 @@ spec:
   template:
     spec:
       containers:
-        - image: ghcr.io/nolanogenn/debora:latest
+        - image: "ghcr.io/nolanogenn/debora:latest"
           imagePullPolicy: IfNotPresent
           name: debora
           ports:
